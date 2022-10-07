@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Holiday" table="Holiday">
+        <id name="idHoliday" type="int">
+            <column name="idHoliday"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="startDate" type="java.util.Date">
+            <column name="startDate"></column>
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="endDate"></column>
+        </property>
+        <property name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">menues.HolidayStatus</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property name="holidayType">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">menues.HolidayType</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <many-to-one name="User" class="User" column="idUser" cascade="all" />
+    </class>
+</hibernate-mapping>

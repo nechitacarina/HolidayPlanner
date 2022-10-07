@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="User" table="User">
+        <id name="idUser" type="int">
+            <column name="idUser" />
+            <generator class="increment" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username"/>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password"/>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name"/>
+        </property>
+        <property name="remainingDaysOfHoliday" type="int">
+            <column name="remainingDaysOfHoliday"/>
+        </property>
+        <property name="typeOfUser">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">menues.TypeOfUser</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>
